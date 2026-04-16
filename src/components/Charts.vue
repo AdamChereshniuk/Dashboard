@@ -1,29 +1,21 @@
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <!-- Animated Revenue Line Chart -->
-         <div
-            class="bg-base-100 p-6 rounded-xl shadow-md dark:bg-white/5 dark:backdrop-blur-md
-            dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20"
-         >
+        <div class="bg-base-100 p-6 rounded-xl shadow-md dark:bg-white/5 dark:backdrop-blur-md dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20">
             <h2 class="text-lg font-semibold mb-4">Monthly Revenue</h2>
             <Line class="max-h-[300px]" :data="revenueChartData" :options="lineChartOptions" :key="lineChartKey" />
-         </div>
+        </div>
         
-        <!-- Animated Doughnut Chart -->
-         <div class="bg-base-100 p-6 rounded-xl shadow-md dark:bg-white/5 dark:backdrop-blur-md
-            dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20">
+        <div class="bg-base-100 p-6 rounded-xl shadow-md dark:bg-white/5 dark:backdrop-blur-md dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20">
             <h2 class="text-lg font-semibold mb-4">Revenue Sources</h2>
             <Doughnut class="max-h-[300px]" :data="doughnutChartData" :options="doughnutChartOptions" :key="doughnutChartKey" />
-         </div>
+        </div>
     </div>
 </template>
+
 <script setup>
-    import { ref, onMounted } from "vue";
+    import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, ArcElement } from "chart.js";
     import { Doughnut, Line } from "vue-chartjs";
-    import {
-        Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale,
-        LinearScale, PointElement, ArcElement
-    } from "chart.js";
+    import { ref, onMounted } from "vue";
     
     ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, ArcElement);
     
@@ -112,14 +104,13 @@
                 callbacks: {
                     label: (context) => {
                         return `${context.label}:${context.raw}%`;
-                    }
-                }
+                    },
+                },
             },
         },
     });
 
     onMounted(() => {
-        // Force re-ender of charts to trigger ania=matios
         lineChartKey.value++;
         doughnutChartKey.value++;
     });

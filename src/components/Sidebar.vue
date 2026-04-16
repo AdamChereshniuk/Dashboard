@@ -1,6 +1,7 @@
 <template>
     <aside class="drawer-side bg-white dark:bg-backgroundDark border-r border-gray-200 dark:border-primary/10">
         <label class="drawer-overlay" for="my-drawer" aria-label="Close sidebar"></label>
+        
         <nav class="menu p-4 w-80 min-h-full text-gray-800 dark:text-gray-200" aria-label="Main navigation">
             <header class="mb-4 flex p-4">
                 <h1 class="text-xl font-bold dark:text-white"> AdminPanel</h1>
@@ -25,9 +26,7 @@
 
                     <ul class="ml-4 pl-4" v-if="link.children && link.open">
                         <li v-for="(child, childIndex) in link.children" :key="childIndex">
-                            <a href="#" class="block py-1 hover:bg-gray-100 dark:hover:bg-white/10 text-black dark:text-white">
-                                {{ child.name }}
-                            </a>
+                            <a href="#" class="block py-1 hover:bg-gray-100 dark:hover:bg-white/10 text-black dark:text-white">{{ child.name }}</a>
                         </li>
                     </ul>
                 </li>
@@ -35,6 +34,7 @@
         </nav>
     </aside>
 </template>
+
 <script setup>
     import { ref } from "vue";
     
@@ -63,9 +63,9 @@
             active: false,
             open: true,
             children: [
-                {name: "All User"},
-                {name: "Add New"},
-                {name: "Roles & Permissions"},
+                { name: "All User" },
+                { name: "Add New" },
+                { name: "Roles & Permissions" },
             ],
         },
         {
@@ -74,9 +74,9 @@
             active: false,
             open: false,
             children: [
-                {name: "All Products"},
-                {name: "Categories"},
-                {name: "Inventory"},
+                { name: "All Products" },
+                { name: "Categories" },
+                { name: "Inventory" },
             ],
         },
         {
@@ -85,9 +85,9 @@
             active: false,
             open: false,
             children: [
-                {name: "All Products"},
-                {name: "Categories"},
-                {name: "Inventory"},
+                { name: "All Products" },
+                { name: "Categories" },
+                { name: "Inventory" },
             ],
         },
         {
@@ -99,12 +99,7 @@
     ]);
 
     const setActive = (index) => {
-        // Toggle open state for items with children
         if(links.value[index].children) links.value[index].open = !links.value[index].open;
-
-        // Set active state
-        links.value.forEach((link, i) => {
-            link.active = i === index;
-        });
+        links.value.forEach((link, i) => link.active = i === index);
     };
 </script>

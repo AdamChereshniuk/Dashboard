@@ -4,7 +4,7 @@
 
 
 🌐 Просмотр:
-[Dashboard](https://cheradam13.github.io/Dashboard/)
+[Dashboard](https://adamchereshniuk.github.io/Dashboard/)
 
 ### 🚀 Установка:
 

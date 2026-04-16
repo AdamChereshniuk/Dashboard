@@ -9,8 +9,7 @@
         <section class="flex-1">
             <div class="form-control">
                 <input
-                    class="input input-bordered w-48 ml-2 md:w-auto dark:bg-white/5 dark:backdrop-blur-md
-                    dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/10"
+                    class="input input-bordered w-48 ml-2 md:w-auto dark:bg-white/5 dark:backdrop-blur-md dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/10"
                     placeholder="Search"
                     type="text"
                 >
@@ -18,12 +17,7 @@
         </section>
 
         <section class="flex gap-6">
-            <!-- Theme Toggle Button -->
-            <button
-                class="btn btn-ghost btn-circle dark:bg-white/5 dark:backdrop-blur-md
-                dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/10"
-                @click="$emit('toggle-theme')"
-            >
+            <button class="btn btn-ghost btn-circle dark:bg-white/5 dark:backdrop-blur-md dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/10" @click="$emit('toggle-theme')">
                 <Icon class="w-8 h-8" icon="line-md:moon-alt-to-sunny-outline-loop-transition" v-if="isDark" />
                 <Icon class="w-8 h-8" icon="line-md:sunny-outline-to-moon-alt-loop-transition" v-else />
             </button>
@@ -36,8 +30,7 @@
                 </button>
 
                 <ul
-                    class="mt-5 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box
-                    w-58 space-y-3 dark:bg-backgroundDark **:font-semibold **:text-base"
+                    class="mt-5 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-58 space-y-3 dark:bg-backgroundDark **:font-semibold **:text-base"
                     tabindex="0"
                 >
                     <li>
@@ -54,12 +47,14 @@
         </section>
     </header>
 </template>
+
 <script setup>
     defineProps({
         isDark: {
             type: Boolean,
             required: true,
-        }
+        },
     });
-    defineEmits(['toggle-drawer', 'toggle-theme']);
+
+    defineEmits(["toggle-drawer", "toggle-theme"]);
 </script>

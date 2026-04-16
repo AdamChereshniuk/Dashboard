@@ -1,8 +1,7 @@
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
         <div
-            class="stats bg-base-100 shadow dark:bg-white/5 dark:backdrop-blur-md
-            dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20"
+            class="stats bg-base-100 shadow dark:bg-white/5 dark:backdrop-blur-md dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20"
             v-for="(stat, index) in statsData"
             :key="index"
         >
@@ -17,17 +16,16 @@
         </div>
     </div>
 </template>
+
 <script setup>
     import { ref } from "vue";
 
     const statsData = ref([
-        {title: "Total Users", value: "12,345", desc: "↗ 14% from last month",},
-        {title: "Revenue", value: "$42,256", desc: "↗ 23% from last month",},
-        {title: "New Orders", value: "56", desc: "↘ 5% from last month",},
-        {title: "Active Projects", value: "56", desc: "↗ 8% from last month",},
+        { title: "Total Users", value: "12,345", desc: "↗ 14% from last month" },
+        { title: "Revenue", value: "$42,256", desc: "↗ 23% from last month" },
+        { title: "New Orders", value: "56", desc: "↘ 5% from last month" },
+        { title: "Active Projects", value: "56", desc: "↗ 8% from last month" },
     ]);
 
-    const isPositiveChange = (desc) => {
-        return desc.includes("↗");
-    };
+    const isPositiveChange = (desc) => desc.includes("↗");
 </script>

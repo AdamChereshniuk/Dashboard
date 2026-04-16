@@ -1,16 +1,14 @@
 <template>
-    <div
-        class="bg-base-100 p-6 rounded-xl shadow-md dark:bg-white/5 dark:backdrop-blur-md
-        dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20"
-    >
+    <div class="bg-base-100 p-6 rounded-xl shadow-md dark:bg-white/5 dark:backdrop-blur-md dark:[--webkit-backdrop-filter:blur(10px)] dark:border-white/20">
         <h2 class="text-lg font-semibold mb-4">Products Performance by Region</h2>
         <Bar class="max-h-[400px]" :data="stackedBarData" :options="stackedBarOptions" />
     </div>
 </template>
+
 <script setup>
-    import { ref } from "vue";
-    import { Bar } from "vue-chartjs";
     import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from "chart.js";
+    import { Bar } from "vue-chartjs";
+    import { ref } from "vue";
     
     ChartJS.register(Title, Tooltip, Legend, CategoryScale, BarElement, LinearScale);
 
@@ -66,7 +64,7 @@
                         const percentage = Math.round((context.raw / total) * 100);
 
                         return `Contribution: ${percentage}%`;
-                    }
+                    },
                 },
             },
         },
