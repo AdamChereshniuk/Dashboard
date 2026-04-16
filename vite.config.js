@@ -4,5 +4,5 @@ import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
   base: "/Dashboard/",
-  plugins: [vue(), tailwindcss()],
+  plugins: [vue(),tailwindcss(),],
 });

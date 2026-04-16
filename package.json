@@ -1,7 +1,6 @@
 {
-  "homepage": "https://adamchereshniuk.github.io/Dashboard/",
   "name": "my-vue-dashboard",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
